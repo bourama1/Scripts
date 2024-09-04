@@ -29,11 +29,13 @@ $output += "{0,-64} ; {1}" -f "Puvodni nazev", "Charakteristika"
 # Pro kazdy soubor zkontrolovat, zda obsahuje kterekoliv zadane slovo (case-insensitive)
 foreach ($file in $files) {
     $fileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
-    
+
     foreach ($keyword in $keywords) {
         if ($fileNameWithoutExtension -ilike "*$keyword*") {
+
+            # TODO parametrizovat predpony?
             $newName = $fileNameWithoutExtension -ireplace "^DW_", "Delka_"
-            
+
             # Naformatovani sloupcu s oddelovacem strednikem na 64 znaku
             $formattedLine = "{0,-64} ; {1}" -f $fileNameWithoutExtension, $newName
             $output += $formattedLine
