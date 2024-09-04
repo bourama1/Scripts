@@ -10,13 +10,17 @@ if (-Not (Test-Path -Path $folderPath -PathType Container)) {
 # Pozadani uzivatele o zadani pripony
 $prefix = Read-Host "Zadejte priponu, kterou chcete pridat k nazvum souboru"
 
-# Ziskejte vsechny soubory ve slozce
+# Ziskejte vsechny soubory ve slozce (rekurzivne)
 $files = Get-ChildItem -Path $folderPath -File -Recurse
 
-# Pro kazdy soubor pridejte zadanou priponu k nazvu souboru
+# Pro kazdy soubor pridat zadanou priponu k nazvu souboru, pokud ji jiz neobsahuje
 foreach ($file in $files) {
-    $newName = $prefix + $file.Name
-    Rename-Item -Path $file.FullName -NewName $newName
+    $fileNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
+
+    if (-not $fileNameWithoutExtension.StartsWith($prefix)) {
+        $newName = $prefix + $file.Name
+        Rename-Item -Path $file.FullName -NewName $newName
+    }
 }
 
 Write-Host "Soubory byly uspesne prejmenovany."
