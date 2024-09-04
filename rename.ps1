@@ -10,8 +10,8 @@ if (-Not (Test-Path -Path $folderPath -PathType Container)) {
 # Pozadani uzivatele o zadani pripony
 $prefix = Read-Host "Zadejte priponu, kterou chcete pridat k nazvum souboru"
 
-# Ziskejte vsechny soubory ve slozce (bez rekurze)
-$files = Get-ChildItem -Path $folderPath -File
+# Ziskejte vsechny soubory ve slozce
+$files = Get-ChildItem -Path $folderPath -File -Recurse
 
 # Pro kazdy soubor pridejte zadanou priponu k nazvu souboru
 foreach ($file in $files) {
