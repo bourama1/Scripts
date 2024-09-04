@@ -11,7 +11,7 @@ Skript `extractFilenames.ps1` prohledá všechny soubory ve specifikované slož
 3. **Výstup**: Skript vytvoří textový soubor `nazvyCharakteristik.txt` v aktuálním pracovním adresáři, který obsahuje původní názvy souborů a jejich nové názvy s odpovídajícími předponami.
 
 ### Ukazka
-![extractFilenames.ps1](image.png)
+![extractFilenames.ps1](https://github.com/user-attachments/assets/d804d2aa-5e39-4736-8b7c-a0e16472f007)
 
 ## `renamePrefix.ps1`
 ### Popis
