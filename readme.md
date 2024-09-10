@@ -14,6 +14,8 @@ Skript `extractFilenames.ps1` prohledá všechny soubory ve specifikované slož
 ![extractFilenames.ps1](https://github.com/user-attachments/assets/d804d2aa-5e39-4736-8b7c-a0e16472f007)
 
 ## `renamePrefix.ps1`
+### SolidWorks
+**Use Pack&Go feature from SW, there is option to add prefix or postfix to whole package with all changes needed for SW.**
 ### Popis
 Skript `renamePrefix.ps1` slouží k přidání specifikované předpony ke všem souborům v zadané složce a jejích podadresářích. Skript přidá předponu pouze k těm souborům, které ji ještě nemají. Skript je užitečný pro hromadné přejmenování souborů podle zadaného vzoru.
 
