@@ -1,6 +1,6 @@
 # Set directory and search text
-$directory = "D:\vykresy kridel"
-$searchText = "TMP096129987"
+$directory = "D:\temp"
+$searchText = "TMP023300828"
 
 # Create Excel COM object
 $excel = New-Object -ComObject Excel.Application
@@ -24,12 +24,15 @@ foreach ($file in $files) {
         foreach ($sheet in $workbook.Sheets) {
             $cells = $sheet.UsedRange  # Get the used range of the sheet
 
-            # Convert all values to a single string and search for text
-            $found = $cells.Text -match $searchText
-            if ($found) {
-                $matchingFiles += $file.Name
-                break  # No need to check further in this file
+            # Loop through each cell in the used range
+            foreach ($cell in $cells) {
+                # Check if the cell contains the search text (case-insensitive)
+                if ($cell.Text -like "*$searchText*") {
+                    $matchingFiles += $file.Name
+                    break  # No need to check further in this file
+                }
             }
+
         }
 
         # Close Workbook
