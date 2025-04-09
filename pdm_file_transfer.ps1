@@ -9,28 +9,34 @@ Write-Host "-------------------------------------"
 # Cycle for all files
 Get-ChildItem -Path $sourceFolder -File | ForEach-Object {
     $sourceFile = $_.FullName
-    $fileName = $_.Name
-    Write-Host "File processing: $fileName"
+    $originalFileName = $_.Name
+    Write-Host "File processing: $originalFileName"
 
-    # Getting revision part (_RevX)
-    if ($fileName -match '_Rev(\d+)') {
+    # Getting revision part (_RevX) from the END of the filename
+    if ($originalFileName -match '_Rev(\d+)') {
         $newRevision = [int]$matches[1]
-        Write-Host "  Revision found, num of revision: $newRevision"
+        Write-Host "  Revision found at the end, num of revision: $newRevision"
     }
     else {
-        Write-Host "  Revision not found. Skipping."
+        Write-Host "  Revision pattern '_RevX' not found at the end. Skipping file: $originalFileName"
+        Write-Host "-------------------------------------"
         return
     }
 
-    # Getting common part of filename (before _RevX)
-    $commonPart = $fileName -replace '(_Rev.*)$', ''
-    Write-Host "  Common part: $commonPart"
+    # Getting the part of the filename before the FIRST underscore (=BAAN, for directory structure)
+    $baseNameForPath = ($originalFileName -split '_', 2)[0] # Split only on the first underscore
+    Write-Host "  Base name for path: $baseNameForPath"
+
+    # Getting the part of the filename before the revision (for comparison later)
+    $commonPartBeforeRevision = $originalFileName -replace '_Rev\d+', ''
+    Write-Host "  Common part before revision: $commonPartBeforeRevision"
 
     # Getting file type
-    $extension = [System.IO.Path]::GetExtension($fileName)
+    $extension = [System.IO.Path]::GetExtension($originalFileName)
+    Write-Host "  Extension: $extension"
 
-    # Creating folder structure name
-    $parts = $commonPart.Split("-")
+    # Creating folder structure name based on baseNameForPath
+    $parts = $baseNameForPath.Split("-")
     $folderPath = $destinationRoot
 
     # Add first part
@@ -38,15 +44,16 @@ Get-ChildItem -Path $sourceFolder -File | ForEach-Object {
         $folderPath = Join-Path $folderPath $parts[0]
     }
 
-    # Add other parts
-    if ($parts.Count -ge 3) {
+    # Add other parts (excluding the last part of the baseNameForPath)
+    if ($parts.Count -ge 2) {
+        # Changed condition to ensure there's something to loop through
         for ($i = 1; $i -le $parts.Count - 2; $i++) {
             $folderPath = Join-Path $folderPath $parts[$i]
         }
     }
 
-    # Adding filename to end of the path
-    $folderPath = Join-Path $folderPath $commonPart
+    # Adding baseNameForPath as the final directory level
+    $folderPath = Join-Path $folderPath $baseNameForPath
     Write-Host "    Path to dir: $folderPath"
 
     # Creating dir structure if it doesn't exist
@@ -58,45 +65,104 @@ Get-ChildItem -Path $sourceFolder -File | ForEach-Object {
         Write-Host "    Dir structure already exists."
     }
 
-    # Path to file with filename
-    $destinationFile = Join-Path $folderPath $fileName
-    Write-Host "    Path to file: $destinationFile"
+    # Path to destination file (using the original filename)
+    $destinationFile = Join-Path $folderPath $originalFileName
+    Write-Host "    Path to destination file: $destinationFile"
 
-    # Check files in the dir, move to OLD
-    $newerExists = $false
-    Write-Host "    Check of existing files in: $folderPath"
+    # Check files in the destination dir, move to OLD
+    $newerRevisionExists = $false
+    Write-Host "    Checking existing files in: $folderPath"
+
+    # Get the common part of the NEW file (before _RevX suffix) for comparison
+    $commonPartOfNewFile = $originalFileName -replace '_Rev\d+', ''
+    Write-Host "    (Expecting to find existing files matching base: '$commonPartOfNewFile' with lower/equal revision)"
+
+
     Get-ChildItem -Path $folderPath -File | ForEach-Object {
         $existingFile = $_
         $existingName = $existingFile.Name
-        # Finding files with same common part and file extension
-        if ($existingName -match "^$([regex]::Escape($commonPart))_Rev(\d+)" -and ([System.IO.Path]::GetExtension($existingName) -eq $extension)) {
+        Write-Host "      Checking existing file: '$($existingName)'"
+
+        # Extract revision from the existing file (must have _RevX suffix)
+        $existingRevision = 0
+        $script:hasExistingRevision = $false
+        if ($existingName -match '_Rev(\d+)') {
             $existingRevision = [int]$matches[1]
-            Write-Host "      File found: $existingName with revision: $existingRevision"
-            # Check for revision number: move if the existing revision is less or equal than new revision
-            if ($existingRevision -le $newRevision) {
-                $oldFolder = Join-Path $folderPath "OLD"
-                if (!(Test-Path $oldFolder)) {
-                    Write-Host "      Making dir OLD: $oldFolder"
-                    New-Item -ItemType Directory -Path $oldFolder -Force | Out-Null
+            $script:hasExistingRevision = $true
+            Write-Host "        -> Found Revision: $existingRevision"
+
+            # Extract the common part of the EXISTING file (before _RevX suffix)
+            $commonPartOfExistingFile = $existingName -replace '_Rev\d+', ''
+            Write-Host "        -> Existing Common Part: '$commonPartOfExistingFile'"
+
+            # Compare the common part of the NEW file with the common part of the EXISTING file
+            # Also compare the file extensions
+            $commonPartsMatch = ($commonPartOfExistingFile -eq $commonPartOfNewFile)
+            $extensionsMatch = ([System.IO.Path]::GetExtension($existingName) -eq $extension)
+
+            Write-Host "        -> Common Parts Match ($commonPartOfExistingFile == $commonPartOfNewFile): $commonPartsMatch"
+            Write-Host "        -> Extensions Match: $extensionsMatch"
+
+            if ($commonPartsMatch -and $extensionsMatch) {
+                Write-Host "      MATCH FOUND: Common part and extension match."
+                Write-Host "      Comparing Revisions: Existing ($existingRevision) <= New ($newRevision) ?"
+
+                # Check revision number
+                if ($existingRevision -le $newRevision) {
+                    Write-Host "        -> YES. Existing revision is lower or equal. Moving to OLD."
+                    $oldFolder = Join-Path $folderPath "OLD"
+                    if (!(Test-Path $oldFolder)) {
+                        Write-Host "          Making dir OLD: $oldFolder"
+                        try {
+                            New-Item -ItemType Directory -Path $oldFolder -Force -ErrorAction Stop | Out-Null
+                            Write-Host "          OLD directory created/exists."
+                        }
+                        catch {
+                            Write-Error "          FAILED to create OLD directory: $oldFolder. Error: $($_.Exception.Message)"
+                            continue # Skip to the next existing file
+                        }
+                    }
+                    else {
+                        Write-Host "          OLD directory exists: $oldFolder"
+                    }
+
+                    Write-Host "          Moving file '$existingName' to OLD folder"
+                    $destinationOldFile = Join-Path $oldFolder $existingName
+                    try {
+                        Move-Item -Path $existingFile.FullName -Destination $destinationOldFile -Force -ErrorAction Stop
+                        Write-Host "          Move successful."
+                    }
+                    catch {
+                        Write-Error "          FAILED to move '$($existingName)' to OLD. Error: $($_.Exception.Message)"
+                    }
                 }
-                Write-Host "      Moving file $existingName to OLD"
-                Move-Item -Path $existingFile.FullName -Destination $oldFolder -Force
+                else {
+                    Write-Host "        -> NO. Existing revision ($existingRevision) is newer."
+                    Write-Host "        -> Setting flag: newerRevisionExists = $true"
+                    $script:newerRevisionExists = $true
+                }
             }
             else {
-                $script:newerExists = $true
+                Write-Host "      NO MATCH on common part or extension. Skipping comparison."
             }
+
+        }
+        else {
+            Write-Host "        -> No Revision suffix found. Skipping comparison logic for '$existingName'."
         }
     }
 
-    if (-not $newerExists) {
-        # Move to destination (replace Copy-Item with Move-Item)
-        Write-Host "    Moving to: $destinationFile"
+    if (-not $newerRevisionExists) {
         Copy-Item -Path $sourceFile -Destination $destinationFile -Force
-        Write-Host "    File $fileName successfully moved."
+        # Move-Item -Path $sourceFile -Destination $destinationFile -Force
     }
     else {
-        Write-Host "    Skipping file: $fileName"
+        Write-Host "    Skipping move for '$originalFileName' because a newer revision exists in the destination."
+        # Optional: Delete the source file if you don't want skipped files left behind
+        # Remove-Item -Path $sourceFile -Force
     }
 
     Write-Host "-------------------------------------"
 }
+
+Write-Host "Script finished."
