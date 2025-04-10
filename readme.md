@@ -109,6 +109,8 @@ Přesune aktuální soubor: Po případném přesunu starších verzí je aktuá
 
 Skript obsahuje rozsáhlé výpisy do konzole, které usnadňují sledování průběhu operací a debugování.
 
+Logování: Veškeré podrobné výpisy o průběhu operací (zpracovávané soubory, vytvářené adresáře, přesouvané soubory, chyby) jsou nyní zaznamenávány do souboru log.txt, který se vytváří (a při každém spuštění přepisuje) ve stejném adresáři, kde je umístěn samotný skript pdm_file_transfer.ps1.
+
 ### Použití
 
 1. Zadejte zdrojovou složku: Ujistěte se, že cesta ke složce s názvem Import_PDM je správně nastavena. (součást kódu, druhý řádek)

@@ -1,0 +1,595 @@
+**********************
+PowerShell transcript start
+Start time: 20250410062222
+Username: LS\matej
+RunAs User: LS\matej
+Configuration Name:
+Machine: TOCZ2402601 (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Program Files\WindowsApps\Microsoft.PowerShellPreview_7.6.2.0_x64__8wekyb3d8bbwe\pwsh.dll -NoProfile -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\matej\.vscode\extensions\ms-vscode.powershell-2025.0.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2025.0.0' -BundledModulesPath 'c:\Users\matej\.vscode\extensions\ms-vscode.powershell-2025.0.0\modules' -EnableConsoleRepl -StartupBanner "PowerShell Extension v2025.0.0
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/vscode-powershell
+Type 'help' to get help.
+" -LogLevel 'Warning' -LogPath 'd:\matej\AppData\Roaming\Code\logs\20250410T061038\window1\exthost\ms-vscode.powershell' -SessionDetailsPath 'd:\matej\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\sessions\PSES-VSCode-16912-337479.json' -FeatureFlags @()
+Process ID: 16992
+PSVersion: 7.6.0-preview.2
+PSEdition: Core
+GitCommitId: 7.6.0-preview.2
+OS: Microsoft Windows 10.0.19045
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is C:\Users\matej\Scripts\log.txt
+Transcript started. Logging output to: C:\Users\matej\Scripts\log.txt
+Source: N:\300 Departments\200 Development\Standardni_Prvky_PDM\Import_PDM
+Destination: N:\300 Departments\200 Development\Standardni_Prvky_PDM
+-------------------------------------
+File processing: T09-060-10-0007_Rev0.eprt
+  Stem: 'T09-060-10-0007_Rev0'
+  Extension: '.eprt'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0007'
+  Base name for path structure: 'T09-060-10-0007'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    Dir structure doesn't exist. Creating: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007\T09-060-10-0007_Rev0.eprt
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    (Comparing against files with common stem 'T09-060-10-0007' and extension '.eprt')
+    Copying 'T09-060-10-0007_Rev0.eprt' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007\T09-060-10-0007_Rev0.eprt
+    File 'T09-060-10-0007_Rev0.eprt' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0007_Rev0.jpg
+  Stem: 'T09-060-10-0007_Rev0'
+  Extension: '.jpg'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0007'
+  Base name for path structure: 'T09-060-10-0007'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007\T09-060-10-0007_Rev0.jpg
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    (Comparing against files with common stem 'T09-060-10-0007' and extension '.jpg')
+      Checking existing file: 'T09-060-10-0007_Rev0.eprt' (Stem: 'T09-060-10-0007_Rev0', Ext: '.eprt')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0007'
+        -> Common Stems Match ('T09-060-10-0007' == 'T09-060-10-0007'): True
+        -> Extensions Match ('.eprt' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0007_Rev0.jpg' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007\T09-060-10-0007_Rev0.jpg
+    File 'T09-060-10-0007_Rev0.jpg' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0007_Rev0.step
+  Stem: 'T09-060-10-0007_Rev0'
+  Extension: '.step'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0007'
+  Base name for path structure: 'T09-060-10-0007'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007\T09-060-10-0007_Rev0.step
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007
+    (Comparing against files with common stem 'T09-060-10-0007' and extension '.step')
+      Checking existing file: 'T09-060-10-0007_Rev0.eprt' (Stem: 'T09-060-10-0007_Rev0', Ext: '.eprt')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0007'
+        -> Common Stems Match ('T09-060-10-0007' == 'T09-060-10-0007'): True
+        -> Extensions Match ('.eprt' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0007_Rev0.jpg' (Stem: 'T09-060-10-0007_Rev0', Ext: '.jpg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0007'
+        -> Common Stems Match ('T09-060-10-0007' == 'T09-060-10-0007'): True
+        -> Extensions Match ('.jpg' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0007_Rev0.step' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0007\T09-060-10-0007_Rev0.step
+    File 'T09-060-10-0007_Rev0.step' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0029_Rev0.eprt
+  Stem: 'T09-060-10-0029_Rev0'
+  Extension: '.eprt'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0029'
+  Base name for path structure: 'T09-060-10-0029'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0029
+    Dir structure doesn't exist. Creating: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0029
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0029\T09-060-10-0029_Rev0.eprt
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0029
+    (Comparing against files with common stem 'T09-060-10-0029' and extension '.eprt')
+    Copying 'T09-060-10-0029_Rev0.eprt' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0029\T09-060-10-0029_Rev0.eprt
+    File 'T09-060-10-0029_Rev0.eprt' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0072_Rev0.eprt
+  Stem: 'T09-060-10-0072_Rev0'
+  Extension: '.eprt'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0072'
+  Base name for path structure: 'T09-060-10-0072'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072\T09-060-10-0072_Rev0.eprt
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    (Comparing against files with common stem 'T09-060-10-0072' and extension '.eprt')
+      Checking existing file: 'T09-060-10-0072_Rev3.eprt' (Stem: 'T09-060-10-0072_Rev3', Ext: '.eprt')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.eprt' == '.eprt'): True
+      MATCH FOUND: Common stem and extension match.
+      Comparing Revisions: Existing (3) <= New (0) ?
+        -> NO. Existing revision (3) is newer.
+        -> Setting flag: newerRevisionExists = True
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.jpg' (Stem: 'T09-060-10-0072_Rev3', Ext: '.jpg')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.jpg' == '.eprt'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.step' (Stem: 'T09-060-10-0072_Rev3', Ext: '.step')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.step' == '.eprt'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.stl' (Stem: 'T09-060-10-0072_Rev3', Ext: '.stl')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.stl' == '.eprt'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Skipping copy for 'T09-060-10-0072_Rev0.eprt' because a newer revision exists in the destination.
+-------------------------------------
+File processing: T09-060-10-0072_Rev0.jpg
+  Stem: 'T09-060-10-0072_Rev0'
+  Extension: '.jpg'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0072'
+  Base name for path structure: 'T09-060-10-0072'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072\T09-060-10-0072_Rev0.jpg
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    (Comparing against files with common stem 'T09-060-10-0072' and extension '.jpg')
+      Checking existing file: 'T09-060-10-0072_Rev3.eprt' (Stem: 'T09-060-10-0072_Rev3', Ext: '.eprt')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.eprt' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.jpg' (Stem: 'T09-060-10-0072_Rev3', Ext: '.jpg')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.jpg' == '.jpg'): True
+      MATCH FOUND: Common stem and extension match.
+      Comparing Revisions: Existing (3) <= New (0) ?
+        -> NO. Existing revision (3) is newer.
+        -> Setting flag: newerRevisionExists = True
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.step' (Stem: 'T09-060-10-0072_Rev3', Ext: '.step')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.step' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.stl' (Stem: 'T09-060-10-0072_Rev3', Ext: '.stl')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.stl' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Skipping copy for 'T09-060-10-0072_Rev0.jpg' because a newer revision exists in the destination.
+-------------------------------------
+File processing: T09-060-10-0072_Rev0.step
+  Stem: 'T09-060-10-0072_Rev0'
+  Extension: '.step'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0072'
+  Base name for path structure: 'T09-060-10-0072'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072\T09-060-10-0072_Rev0.step
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    (Comparing against files with common stem 'T09-060-10-0072' and extension '.step')
+      Checking existing file: 'T09-060-10-0072_Rev3.eprt' (Stem: 'T09-060-10-0072_Rev3', Ext: '.eprt')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.eprt' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.jpg' (Stem: 'T09-060-10-0072_Rev3', Ext: '.jpg')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.jpg' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.step' (Stem: 'T09-060-10-0072_Rev3', Ext: '.step')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.step' == '.step'): True
+      MATCH FOUND: Common stem and extension match.
+      Comparing Revisions: Existing (3) <= New (0) ?
+        -> NO. Existing revision (3) is newer.
+        -> Setting flag: newerRevisionExists = True
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.stl' (Stem: 'T09-060-10-0072_Rev3', Ext: '.stl')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.stl' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Skipping copy for 'T09-060-10-0072_Rev0.step' because a newer revision exists in the destination.
+-------------------------------------
+File processing: T09-060-10-0072_Rev0.STL
+  Stem: 'T09-060-10-0072_Rev0'
+  Extension: '.STL'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0072'
+  Base name for path structure: 'T09-060-10-0072'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072\T09-060-10-0072_Rev0.STL
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0072
+    (Comparing against files with common stem 'T09-060-10-0072' and extension '.STL')
+      Checking existing file: 'T09-060-10-0072_Rev3.eprt' (Stem: 'T09-060-10-0072_Rev3', Ext: '.eprt')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.eprt' == '.STL'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.jpg' (Stem: 'T09-060-10-0072_Rev3', Ext: '.jpg')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.jpg' == '.STL'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.step' (Stem: 'T09-060-10-0072_Rev3', Ext: '.step')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.step' == '.STL'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0072_Rev3.stl' (Stem: 'T09-060-10-0072_Rev3', Ext: '.stl')
+        -> Found Revision in stem: 3
+        -> Existing Common Stem Part: 'T09-060-10-0072'
+        -> Common Stems Match ('T09-060-10-0072' == 'T09-060-10-0072'): True
+        -> Extensions Match ('.stl' == '.STL'): True
+      MATCH FOUND: Common stem and extension match.
+      Comparing Revisions: Existing (3) <= New (0) ?
+        -> NO. Existing revision (3) is newer.
+        -> Setting flag: newerRevisionExists = True
+      ------
+    Skipping copy for 'T09-060-10-0072_Rev0.STL' because a newer revision exists in the destination.
+-------------------------------------
+File processing: T09-060-10-0073_Rev0.dwg
+  Stem: 'T09-060-10-0073_Rev0'
+  Extension: '.dwg'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure doesn't exist. Creating: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.dwg
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073' and extension '.dwg')
+    Copying 'T09-060-10-0073_Rev0.dwg' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.dwg
+    File 'T09-060-10-0073_Rev0.dwg' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0073_Rev0.edrw
+  Stem: 'T09-060-10-0073_Rev0'
+  Extension: '.edrw'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.edrw
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073' and extension '.edrw')
+      Checking existing file: 'T09-060-10-0073_Rev0.dwg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.dwg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.dwg' == '.edrw'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0073_Rev0.edrw' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.edrw
+    File 'T09-060-10-0073_Rev0.edrw' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0073_Rev0.eprt
+  Stem: 'T09-060-10-0073_Rev0'
+  Extension: '.eprt'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.eprt
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073' and extension '.eprt')
+      Checking existing file: 'T09-060-10-0073_Rev0.dwg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.dwg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.dwg' == '.eprt'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.edrw' (Stem: 'T09-060-10-0073_Rev0', Ext: '.edrw')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.edrw' == '.eprt'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0073_Rev0.eprt' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.eprt
+    File 'T09-060-10-0073_Rev0.eprt' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0073_Rev0.jpg
+  Stem: 'T09-060-10-0073_Rev0'
+  Extension: '.jpg'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.jpg
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073' and extension '.jpg')
+      Checking existing file: 'T09-060-10-0073_Rev0.dwg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.dwg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.dwg' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.edrw' (Stem: 'T09-060-10-0073_Rev0', Ext: '.edrw')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.edrw' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.eprt' (Stem: 'T09-060-10-0073_Rev0', Ext: '.eprt')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.eprt' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0073_Rev0.jpg' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.jpg
+    File 'T09-060-10-0073_Rev0.jpg' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0073_Rev0.pdf
+  Stem: 'T09-060-10-0073_Rev0'
+  Extension: '.pdf'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.pdf
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073' and extension '.pdf')
+      Checking existing file: 'T09-060-10-0073_Rev0.dwg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.dwg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.dwg' == '.pdf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.edrw' (Stem: 'T09-060-10-0073_Rev0', Ext: '.edrw')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.edrw' == '.pdf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.eprt' (Stem: 'T09-060-10-0073_Rev0', Ext: '.eprt')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.eprt' == '.pdf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.jpg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.jpg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.jpg' == '.pdf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0073_Rev0.pdf' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.pdf
+    File 'T09-060-10-0073_Rev0.pdf' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0073_Rev0.step
+  Stem: 'T09-060-10-0073_Rev0'
+  Extension: '.step'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.step
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073' and extension '.step')
+      Checking existing file: 'T09-060-10-0073_Rev0.dwg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.dwg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.dwg' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.edrw' (Stem: 'T09-060-10-0073_Rev0', Ext: '.edrw')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.edrw' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.eprt' (Stem: 'T09-060-10-0073_Rev0', Ext: '.eprt')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.eprt' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.jpg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.jpg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.jpg' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.pdf' (Stem: 'T09-060-10-0073_Rev0', Ext: '.pdf')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073'): True
+        -> Extensions Match ('.pdf' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0073_Rev0.step' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_Rev0.step
+    File 'T09-060-10-0073_Rev0.step' successfully copied.
+-------------------------------------
+File processing: T09-060-10-0073_ROZVIN_Rev0.dxf
+  Stem: 'T09-060-10-0073_ROZVIN_Rev0'
+  Extension: '.dxf'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-0073_ROZVIN'
+  Base name for path structure: 'T09-060-10-0073'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_ROZVIN_Rev0.dxf
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073
+    (Comparing against files with common stem 'T09-060-10-0073_ROZVIN' and extension '.dxf')
+      Checking existing file: 'T09-060-10-0073_Rev0.dwg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.dwg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073_ROZVIN'): False
+        -> Extensions Match ('.dwg' == '.dxf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.edrw' (Stem: 'T09-060-10-0073_Rev0', Ext: '.edrw')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073_ROZVIN'): False
+        -> Extensions Match ('.edrw' == '.dxf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.eprt' (Stem: 'T09-060-10-0073_Rev0', Ext: '.eprt')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073_ROZVIN'): False
+        -> Extensions Match ('.eprt' == '.dxf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.jpg' (Stem: 'T09-060-10-0073_Rev0', Ext: '.jpg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073_ROZVIN'): False
+        -> Extensions Match ('.jpg' == '.dxf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.pdf' (Stem: 'T09-060-10-0073_Rev0', Ext: '.pdf')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073_ROZVIN'): False
+        -> Extensions Match ('.pdf' == '.dxf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-0073_Rev0.step' (Stem: 'T09-060-10-0073_Rev0', Ext: '.step')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-0073'
+        -> Common Stems Match ('T09-060-10-0073' == 'T09-060-10-0073_ROZVIN'): False
+        -> Extensions Match ('.step' == '.dxf'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-0073_ROZVIN_Rev0.dxf' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-0073\T09-060-10-0073_ROZVIN_Rev0.dxf
+    File 'T09-060-10-0073_ROZVIN_Rev0.dxf' successfully copied.
+-------------------------------------
+File processing: T09-060-10-9999_Rev0.easm
+  Stem: 'T09-060-10-9999_Rev0'
+  Extension: '.easm'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-9999'
+  Base name for path structure: 'T09-060-10-9999'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    Dir structure doesn't exist. Creating: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999\T09-060-10-9999_Rev0.easm
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    (Comparing against files with common stem 'T09-060-10-9999' and extension '.easm')
+    Copying 'T09-060-10-9999_Rev0.easm' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999\T09-060-10-9999_Rev0.easm
+    File 'T09-060-10-9999_Rev0.easm' successfully copied.
+-------------------------------------
+File processing: T09-060-10-9999_Rev0.jpg
+  Stem: 'T09-060-10-9999_Rev0'
+  Extension: '.jpg'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-9999'
+  Base name for path structure: 'T09-060-10-9999'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999\T09-060-10-9999_Rev0.jpg
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    (Comparing against files with common stem 'T09-060-10-9999' and extension '.jpg')
+      Checking existing file: 'T09-060-10-9999_Rev0.easm' (Stem: 'T09-060-10-9999_Rev0', Ext: '.easm')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-9999'
+        -> Common Stems Match ('T09-060-10-9999' == 'T09-060-10-9999'): True
+        -> Extensions Match ('.easm' == '.jpg'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-9999_Rev0.jpg' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999\T09-060-10-9999_Rev0.jpg
+    File 'T09-060-10-9999_Rev0.jpg' successfully copied.
+-------------------------------------
+File processing: T09-060-10-9999_Rev0.step
+  Stem: 'T09-060-10-9999_Rev0'
+  Extension: '.step'
+  Revision found at end of stem: 0
+  Common stem part: 'T09-060-10-9999'
+  Base name for path structure: 'T09-060-10-9999'
+    Path to dir: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    Dir structure already exists.
+    Path to destination file: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999\T09-060-10-9999_Rev0.step
+    Checking existing files in: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999
+    (Comparing against files with common stem 'T09-060-10-9999' and extension '.step')
+      Checking existing file: 'T09-060-10-9999_Rev0.easm' (Stem: 'T09-060-10-9999_Rev0', Ext: '.easm')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-9999'
+        -> Common Stems Match ('T09-060-10-9999' == 'T09-060-10-9999'): True
+        -> Extensions Match ('.easm' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+      Checking existing file: 'T09-060-10-9999_Rev0.jpg' (Stem: 'T09-060-10-9999_Rev0', Ext: '.jpg')
+        -> Found Revision in stem: 0
+        -> Existing Common Stem Part: 'T09-060-10-9999'
+        -> Common Stems Match ('T09-060-10-9999' == 'T09-060-10-9999'): True
+        -> Extensions Match ('.jpg' == '.step'): False
+      NO MATCH on common stem or extension. Skipping comparison.
+      ------
+    Copying 'T09-060-10-9999_Rev0.step' to: N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09\060\10\T09-060-10-9999\T09-060-10-9999_Rev0.step
+    File 'T09-060-10-9999_Rev0.step' successfully copied.
+-------------------------------------
+Script finished.
+**********************
+PowerShell transcript end
+End time: 20250410062235
+**********************
