@@ -137,22 +137,25 @@ Skript `renamePrefix.ps1` slouží k přidání specifikované předpony ke vše
 2. **Zadejte předponu**: Skript se dále zeptá na předponu, kterou chcete přidat k názvům souborů. Předpona bude přidána pouze k souborům, které ji ještě neobsahují.
 3. **Rekurzivní přejmenování**: Skript prohledá zadanou složku i všechny její podadresáře a přidá předponu ke všem odpovídajícím souborům.
 
-### `start_excel_with_addin.ps1`
+### `start_excel.ps1`
 
 #### Popis
 
-Skript start_excel_with_addin.ps1 slouží k automatickému spuštění aplikace Microsoft Excel a zajištění, že je specifický doplněk (Add-in) načten a aktivní. Volitelně může také otevřít konkrétní excelový sešit. Tento skript je ideální pro situace, kdy je pro práci nezbytný určitý doplněk, jako je například OPCEx3, a je potřeba automatizovat jeho restart.
+Skript RunTwoExcelInstances.ps1 spouští dvě oddělené instance aplikace Microsoft Excel:
 
-#### Použití
+1. Instance s aktivním doplňkem – automaticky načte a aktivuje zadaný Add-in (např. OPCEx3) a otevře definovaný sešit.
+2. Instance bez aktivního doplňku – spustí čistou instanci Excelu, deaktivuje (pokud je načten) stejný Add-in a otevře jiný určený sešit.
 
-1. Konfigurace skriptu: Před prvním spuštěním je nutné upravit konfigurační proměnné na začátku skriptu:
-2. $addinName: Zadejte přesný název doplňku, jak se zobrazuje v Excelu (např. "OPCEx3").
-3. $addinPath: Zadejte úplnou cestu k souboru doplňku (např. D:\cesta\k\doplnku\OPCEx3.xla).
-4. $workbookPath: (Volitelné) Zadejte úplnou cestu k excelovému sešitu, který chcete automaticky otevřít. Pokud nechcete otevírat žádný soubor, nechte tuto proměnnou prázdnou ("").
+Tento přístup je užitečný, pokud potřebujete současně pracovat se sešity, u kterých mají doplňky různá nastavení nebo pokud testujete chování sešitů bez načteného doplňku.
 
-#### Spuštění skriptu
+#### Konfigurace
 
-Spusťte skript z PowerShell terminálu. Skript otevře novou instanci Excelu, pokusí se načíst a aktivovat zadaný doplněk a případně otevře definovaný sešit. Výstup o průběhu se zobrazuje v konzoli.
+Na začátku skriptu upravte tyto proměnné podle svých potřeb:
+
+- $addinNameNázev doplňku přesně tak, jak se zobrazuje v Excelu (např. "OPCEx3").
+- $addinPathÚplná cesta k souboru doplňku (.xla, .xlam apod.), např. D:\temp\OPCEx3.xla.
+- $workbookWithAddinCesta k Excel sešitu, který chcete otevřít v instanci s aktivním doplňkem.
+- $workbookWithoutAddinCesta k Excel sešitu, který chcete otevřít v instanci bez doplňku.
 
 ## Python
 
