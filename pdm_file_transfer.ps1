@@ -129,10 +129,12 @@ Get-ChildItem -Path $sourceFolder -File | ForEach-Object {
 
             if ($commonStemsMatch -and $extensionsMatch) {
                 Write-Host "      MATCH FOUND: Common stem and extension match."
-                Write-Host "      Comparing Revisions: Existing ($existingRevision) <= New ($newRevision) ?"
+                Write-Host "      Comparing Revisions: Existing ($existingRevision) vs New ($newRevision)"
 
-                if ($existingRevision -le $newRevision) {
-                    Write-Host "        -> YES. Existing revision is lower or equal. Moving to OLD."
+                # --- START MODIFICATION ---
+                # Check if existing revision is OLDER
+                if ($existingRevision -lt $newRevision) {
+                    Write-Host "        -> OLDER. Existing revision is lower. Moving to OLD."
                     $oldFolder = Join-Path $folderPath "OLD"
                     if (!(Test-Path $oldFolder)) {
                         Write-Host "          Making dir OLD: $oldFolder"
@@ -159,12 +161,17 @@ Get-ChildItem -Path $sourceFolder -File | ForEach-Object {
                         Write-Error "          FAILED to move '$($existingName)' to OLD. Error: $($_.Exception.Message)"
                     }
                 }
+                # Check if revisions are the SAME
+                elseif ($existingRevision -eq $newRevision) {
+                    Write-Host "        -> SAME. Existing revision is identical. It will be overwritten by the new file. No move needed."
+                }
+                # Otherwise, the existing revision must be NEWER
                 else {
-                    # Existing is newer
-                    Write-Host "        -> NO. Existing revision ($existingRevision) is newer."
+                    Write-Host "        -> NEWER. Existing revision ($existingRevision) is newer."
                     Write-Host "        -> Setting flag: newerRevisionExists = $true"
                     $script:newerRevisionExists = $true
                 }
+                # --- END MODIFICATION ---
             }
             else {
                 # Common stems or extensions don't match
