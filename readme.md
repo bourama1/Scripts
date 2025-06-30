@@ -141,21 +141,29 @@ Skript `renamePrefix.ps1` slouží k přidání specifikované předpony ke vše
 
 #### Popis
 
-Skript RunTwoExcelInstances.ps1 spouští dvě oddělené instance aplikace Microsoft Excel:
+Skript start_excel.ps1 automaticky spouští více instancí aplikace Microsoft Excel a umísťuje jednotlivé sešity na specifikované monitory.
 
-1. Instance s aktivním doplňkem – automaticky načte a aktivuje zadaný Add-in (např. OPCEx3) a otevře definovaný sešit.
-2. Instance bez aktivního doplňku – spustí čistou instanci Excelu, deaktivuje (pokud je načten) stejný Add-in a otevře jiný určený sešit.
+Každý sešit (.xlsm soubor) je otevřen v nové instanci Excelu (/x), což zajišťuje oddělené procesy a prostředí. Po otevření se okno Excelu přesune na určený monitor a maximalizuje se do jeho pracovního prostoru.
 
-Tento přístup je užitečný, pokud potřebujete současně pracovat se sešity, u kterých mají doplňky různá nastavení nebo pokud testujete chování sešitů bez načteného doplňku.
+Tento přístup je ideální pro uživatele s více monitory, kteří chtějí pracovat s různými sešity v samostatných oknech a mít je přesně rozložené podle potřeby.
 
 #### Konfigurace
 
-Na začátku skriptu upravte tyto proměnné podle svých potřeb:
+Na začátku skriptu můžete upravit následující proměnné:
 
-- $addinNameNázev doplňku přesně tak, jak se zobrazuje v Excelu (např. "OPCEx3").
-- $addinPathÚplná cesta k souboru doplňku (.xla, .xlam apod.), např. D:\temp\OPCEx3.xla.
-- $workbookWithAddinCesta k Excel sešitu, který chcete otevřít v instanci s aktivním doplňkem.
-- $workbookWithoutAddinCesta k Excel sešitu, který chcete otevřít v instanci bez doplňku.
+- $excelExe
+    Úplná cesta k aplikaci Excel. Výchozí:
+    "C:\Program Files (x86)\Microsoft Office\root\Office16\EXCEL.EXE"
+
+- $timeout
+    Čas (v sekundách), po který skript čeká na okno Excelu po jeho spuštění.
+
+- $fileMonitors
+    Hash tabulka určující, na kterém monitoru se má který soubor otevřít.
+    Klíčem je název souboru (včetně přípony), hodnotou index monitoru (0 = hlavní).
+
+- $baseFolder
+    Složka, ve které se nacházejí .xlsm soubory ke zpracování.
 
 ## Python
 

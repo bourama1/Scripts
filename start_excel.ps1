@@ -1,117 +1,83 @@
-# --- Configuration ---
-# Name of your Add-in as it appears in Excel's Add-ins list
-$addinName = "OPCEx3"
+# ───────────────────────────────────────────────────────────
+# start_excel.ps1
+# ───────────────────────────────────────────────────────────
 
-# Full path to your Add-in file (.xlam, .xla, etc.)
-$addinPath = "D:\temp\OPCEx3.xla"
+# 1) Force UTF-8 in/out
+[Console]::InputEncoding  = [Text.UTF8Encoding]::new()
+[Console]::OutputEncoding = [Text.UTF8Encoding]::new()
 
-# Path to workbook that should be opened with the Add-in enabled
-$workbookWithAddin = "D:\temp\test.xlsx"
+# 2) Load WinForms for Screen/AllScreens
+#    (Must run in Windows PowerShell 5.1 for easiest compatibility)
+Add-Type -AssemblyName System.Windows.Forms
 
-# Path to workbook that should be opened without the Add-in
-$workbookWithoutAddin = "D:\temp\test_without_addin.xlsx"
+# 3) Define Win32.MoveWindow via P/Invoke
+Add-Type @"
+  using System;
+  using System.Runtime.InteropServices;
+  public class Win32 {
+    [DllImport("user32.dll", SetLastError=true)]
+    public static extern bool MoveWindow(
+      IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+  }
+"@
 
-# --- Function to launch Excel with Add-in ---
-function Start-ExcelWithAddin {
-    param(
-        [string]$addinName,
-        [string]$addinPath,
-        [string]$workbookPath
-    )
+# 4) Configuration
+$excelExe = "C:\Program Files (x86)\Microsoft Office\root\Office16\EXCEL.EXE"
+$timeout  = 5  # seconds
 
-    Write-Host "Launching Excel instance with Add-in '$addinName'..."
-    $excel = New-Object -ComObject Excel.Application
-    $excel.Visible = $true
-
-    # Open workbook if specified
-    if ($workbookPath -and (Test-Path $workbookPath)) {
-        try {
-            Write-Host "Opening workbook: $workbookPath"
-            $excel.Workbooks.Open($workbookPath) | Out-Null
-        }
-        catch {
-            Write-Host "Error opening workbook: $_"
-        }
-    }
-
-    # Install and enable the Add-in
-    try {
-        Write-Host "Installing and enabling add-in from: $addinPath"
-        $addIn = $excel.AddIns.Add($addinPath)
-        $addIn.Installed = $true
-        Write-Host "Add-in '$addinName' activated."
-    }
-    catch {
-        Write-Host "Error enabling add-in: $_"
-        # Fallback: try to find existing add-in by name
-        try {
-            $existing = $excel.AddIns | Where-Object { $_.Name -eq "$($addinName).xla" -or $_.Name -eq $addinName }
-            if ($existing) {
-                $existing.Installed = $true
-                Write-Host "Existing add-in '$addinName' found and enabled."
-            }
-            else {
-                Write-Host "Add-in '$addinName' not found in collection."
-            }
-        }
-        catch {
-            Write-Host "Further error when locating add-in: $_"
-        }
-    }
-
-    return $excel
+# Map each workbook filename to the monitor index you want:
+$fileMonitors = @{
+  "makroProcedura.xlsm"             = 1
+  "rucniTisk.xlsm"                  = 1
+  "evidence010-dvousmenny.xlsm"     = 2
+  "Vizualizace andon.xlsm"          = 0
 }
 
-# --- Function to launch Excel without Add-in ---
-function Start-ExcelWithoutAddin {
-    param(
-        [string]$addinName,
-        [string]$workbookPath
+# Base folder containing your .xlsm files
+$baseFolder = "D:\Aktuální SW\ExcelApp"
+
+# 5) Enumerate and process
+$monitors = [System.Windows.Forms.Screen]::AllScreens
+
+Get-ChildItem -LiteralPath $baseFolder -Filter *.xlsm -File | ForEach-Object {
+    $fileName = $_.Name
+    if (-not $fileMonitors.ContainsKey($fileName)) {
+        Write-Warning "Skipping $fileName (no monitor mapping)."
+        return
+    }
+
+    $wbPath = $_.FullName
+    $mon    = $fileMonitors[$fileName]
+
+    Write-Host "Opening $fileName on monitor #$mon …"
+
+    # Force a new Excel instance (/x), and quote the full path
+    $arg = '/x ' + '"' + $wbPath + '"'
+    $proc = Start-Process -FilePath $excelExe `
+                          -ArgumentList $arg `
+                          -PassThru
+
+    # Wait for its window handle
+    $sw = [Diagnostics.Stopwatch]::StartNew()
+    do {
+        Start-Sleep -Milliseconds 200
+        $proc.Refresh()
+    } until ($sw.Elapsed.TotalSeconds -ge $timeout)
+
+    if ($proc.MainWindowHandle -eq 0) {
+        Write-Warning "  → Couldn’t get window for PID $($proc.Id)"
+        return
+    }
+
+    $bounds = $monitors[$mon].WorkingArea
+
+    [Win32]::MoveWindow(
+      $proc.MainWindowHandle,
+      $bounds.X, $bounds.Y,
+      $bounds.Width, $bounds.Height,
+      $true
     )
-
-    Write-Host "Launching Excel instance WITHOUT Add-in '$addinName'..."
-    $excel = New-Object -ComObject Excel.Application
-    $excel.Visible = $true
-
-    # Open workbook if specified
-    if ($workbookPath -and (Test-Path $workbookPath)) {
-        try {
-            Write-Host "Opening workbook: $workbookPath"
-            $excel.Workbooks.Open($workbookPath) | Out-Null
-        }
-        catch {
-            Write-Host "Error opening workbook: $_"
-        }
-    }
-
-    # Disable the Add-in in this instance if already loaded
-    try {
-        $existing = $excel.AddIns | Where-Object { $_.Name -eq "$($addinName).xla" -or $_.Name -eq $addinName }
-        if ($existing) {
-            $existing.Installed = $false
-            Write-Host "Disabled add-in '$addinName' in this instance."
-        }
-        else {
-            Write-Host "Add-in '$addinName' not present in this instance."
-        }
-    }
-    catch {
-        Write-Host "Error disabling add-in: $_"
-    }
-
-    return $excel
+    Write-Host "  → Moved to Monitor #$mon ($($bounds.Width)x$($bounds.Height))"
 }
 
-# --- Main Script Execution ---
-# 1) Start Excel with Add-in and open workbook
-$excelWith = Start-ExcelWithAddin -addinName $addinName -addinPath $addinPath -workbookPath $workbookWithAddin
-
-# 2) Start a second Excel instance without the Add-in and open different workbook
-$excelWithout = Start-ExcelWithoutAddin -addinName $addinName -workbookPath $workbookWithoutAddin
-
-# (Optional) Clean-up: Release COM objects when done
-[System.Runtime.InteropServices.Marshal]::ReleaseComObject($excelWith) | Out-Null
-[System.Runtime.InteropServices.Marshal]::ReleaseComObject($excelWithout) | Out-Null
-Remove-Variable excelWith, excelWithout
-
-Write-Host "Both Excel instances have been launched."
+Write-Host "✅ Done."
