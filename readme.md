@@ -95,6 +95,49 @@ Pokud máte PowerShell skript s názvem example.ps1 a chcete pro něj vytvořit 
 
 Tento příkaz vytvoří zástupce pro skript v aktuálním adresáři. Sentinel pravdepodobne smaže.
 
+### `pdm_clean_up.ps1`
+
+#### Popis
+
+Skript `pdm_clean_up.ps1` slouží k automatizované údržbě verzovaných souborů v rámci zadané kořenové složky.
+Prochází *leaf* (konečné) podadresáře, ve kterých nejsou další podsložky, a pro každý typ souboru:
+
+1. **Sběr souborů**
+   - Načte všechny soubory, jejichž název odpovídá vzoru `*_Rev<číslo>.<ext>`.
+   - Extrahuje „common part“ názvu (část před `_Rev`) a číslo revize.
+
+2. **Seskupení**
+   - Seskupe všechny nalezené položky podle dvojice `(common part, přípona)` pomocí `Group‑Object`.
+
+3. **Výběr nejnovější revize**
+   - U každé skupiny seřadí položky podle `Revision` sestupně a vybere tu s nejvyšší hodnotou jako „aktuální“.
+
+4. **Přesun starších revizí**
+   - Pokud skupina obsahuje více než jednu revizi, vytvoří v daném adresáři podsložku `OLD` (pokud ještě neexistuje) a všechny revize *nižší* než nejvyšší přesune do ní.
+
+5. **Logování a výpisy**
+   - Každý krok (nalezení souboru, vytvoření složky `OLD`, přesun souboru, případné chyby) se vypisuje na konzoli.
+   - Celý výstup se zároveň ukládá pomocí `Start-Transcript` do souboru `cleanup_log.txt` ve stejné složce jako skript.
+
+#### Použití
+
+1. **Nastavte kořenovou složku**
+   V prvním řádku skriptu upravte:
+   $rootDir = "N:\300 Departments\200 Development\Standardni_Prvky_PDM\T09" na požadovanou cestu.
+
+2. Uložení kódování
+V editoru (např. VS Code) uložte skript jako UTF‑8 with BOM, aby PowerShell správně rozpoznal hlavičku param() a diakritiku.
+
+3. Spuštění skriptu
+Otevřete PowerShell a spusťte:
+.\pdm_clean_up.ps1
+
+4. Výsledek
+
+V každém leaf adresáři zůstanou pouze soubory s nejvyšší revizí.
+Starší revize budou přesunuty do podsložky OLD.
+Kompletní log najdete v cleanup_log.txt.
+
 ### `pdm_file_transfer.ps1`
 
 #### Popis
