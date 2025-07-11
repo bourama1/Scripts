@@ -1,5 +1,11 @@
 # Skripty
 
+## CMD
+
+### `RunAll.bat`
+
+- from Linka
+
 ## PowerShell
 
 ### `extract_filenames_excel.ps1`
@@ -164,6 +170,10 @@ Logování: Veškeré podrobné výpisy o průběhu operací (zpracovávané sou
 
 3. Spuštění skriptu: Skript zpracuje všechny soubory v Import_PDM, vytvoří potřebnou strukturu, přesune starší či shodné verze do složky OLD a zkopíruje aktuální soubory na správná místa.
 
+### `REBOOT.ps1`
+
+- from Linka
+
 ### `rename_prefix.ps1`
 
 #### SolidWorks
@@ -181,6 +191,8 @@ Skript `renamePrefix.ps1` slouží k přidání specifikované předpony ke vše
 3. **Rekurzivní přejmenování**: Skript prohledá zadanou složku i všechny její podadresáře a přidá předponu ke všem odpovídajícím souborům.
 
 ### `start_excel.ps1`
+
+- from Linka
 
 #### Popis
 
