@@ -1,6 +1,8 @@
 @echo off
 chcp 65001 > nul
-TIMEOUT /T 10
+TIMEOUT /T 60
+net use N: /DELETE
+net use N: \\TOCZ-FS2\510-TOCZ /USER:LS\vyroba Vyr123456
 start "" "D:\Aktuální SW\OPC Clienti\OPC_PLC0_Orezavacka_BezKepware\ToorsPLCClient.exe"
 TIMEOUT /T 1
 start "" "D:\Aktuální SW\OPC Clienti\OPC_PLC1_Plechy\ToorsOPCClient.exe"
