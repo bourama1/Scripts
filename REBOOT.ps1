@@ -26,8 +26,3 @@ try {
 catch {
     Write-Host "An error occurred while cleaning temporary or AutoRecover files. Continuing..."
 }
-
-# Start-Sleep -Seconds 5
-
-# --- Section 3: Reboot Computer ---
-# Restart-Computer -Force

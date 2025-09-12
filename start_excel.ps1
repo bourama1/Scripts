@@ -19,6 +19,10 @@ Add-Type @"
     [DllImport("user32.dll", SetLastError=true)]
     public static extern bool MoveWindow(
       IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+    [DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
   }
 "@
 
@@ -78,6 +82,10 @@ Get-ChildItem -LiteralPath $baseFolder -Filter *.xlsm -File | ForEach-Object {
       $bounds.Width, $bounds.Height,
       $true
     )
+
+    # Maximize window (3 = SW_MAXIMIZE)
+    [Win32]::ShowWindow($proc.MainWindowHandle, 3)
+
     Write-Host "  → Moved to Monitor #$mon ($($bounds.Width)x$($bounds.Height))"
 }
 
